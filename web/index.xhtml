@@ -1,0 +1,45 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        encoding="utf-8"
+        contentType="text/html"
+        >
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="SiSCUM" swatch="b">
+                
+            </pm:header>
+
+            <pm:content>
+                <h:form id="login"> 
+                    <center>
+
+
+
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Usuario"/>
+                            <p:inputText title="Usuario" value="${loginBean.empleado.usuario}"/>
+                            <h:outputText value="Password" />
+                            <p:password minLength="1" maxlength="10" feedback="false" value="${loginBean.empleado.password}"/>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="1">
+                            <h:commandButton id="sub"  action="${loginBean.submitVerificacionEmpleado}" value="Accesar" />
+                            <h:outputText style="color: red ;font-size: large" value="${loginBean.message}"/>
+                        </h:panelGrid>
+
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

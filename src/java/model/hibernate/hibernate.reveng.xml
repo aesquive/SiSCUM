@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="barriga"/>
+  <table-filter match-name="Cliente"/>
+  <table-filter match-name="HistoriaConvenio"/>
+  <table-filter match-name="Vivienda"/>
+  <table-filter match-name="EstatusConvenio"/>
+  <table-filter match-name="HistoriaPagos"/>
+  <table-filter match-name="Rol"/>
+  <table-filter match-name="EstatusEmpleado"/>
+  <table-filter match-name="EstatusCliente"/>
+  <table-filter match-name="EstatusCartera"/>
+  <table-filter match-name="JerarquiaEmpleado"/>
+  <table-filter match-name="EstatusVivienda"/>
+  <table-filter match-name="Empleado"/>
+  <table-filter match-name="HistoriaCartera"/>
+</hibernate-reverse-engineering>

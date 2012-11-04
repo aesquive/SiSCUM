@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.HistoriaPagos" table="HistoriaPagos" catalog="barriga">
+        <id name="idHistoriaPagos" type="java.lang.Integer">
+            <column name="IdHistoriaPagos" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="historiaCartera" class="model.pojos.HistoriaCartera" fetch="select">
+            <column name="IdCartera" />
+        </many-to-one>
+        <property name="fechaPago" type="timestamp">
+            <column name="FechaPago" length="19" />
+        </property>
+        <property name="monto" type="string">
+            <column name="Monto" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

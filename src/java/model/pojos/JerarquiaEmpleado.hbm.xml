@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.JerarquiaEmpleado" table="JerarquiaEmpleado" catalog="barriga">
+        <id name="idJerarquiaEmpleado" type="java.lang.Integer">
+            <column name="IdJerarquiaEmpleado" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="empleadoByIdEmpleado" class="model.pojos.Empleado" fetch="select">
+            <column name="IdEmpleado" />
+        </many-to-one>
+        <many-to-one name="empleadoByIdJefe" class="model.pojos.Empleado" fetch="select">
+            <column name="IdJefe" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

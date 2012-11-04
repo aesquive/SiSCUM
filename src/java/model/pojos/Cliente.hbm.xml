@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.Cliente" table="Cliente" catalog="barriga">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="IdCliente" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="estatusCliente" class="model.pojos.EstatusCliente" fetch="select">
+            <column name="IdEstatusCliente" />
+        </many-to-one>
+        <property name="primerNombre" type="string">
+            <column name="PrimerNombre" length="100" />
+        </property>
+        <property name="segundoNombre" type="string">
+            <column name="SegundoNombre" length="100" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="ApellidoPaterno" length="100" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="ApellidoMaterno" length="100" />
+        </property>
+        <set name="viviendas" inverse="true">
+            <key>
+                <column name="IdCliente" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.Vivienda" />
+        </set>
+        <set name="historiaCarteras" inverse="true">
+            <key>
+                <column name="IdCliente" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.HistoriaCartera" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.HistoriaCartera" table="HistoriaCartera" catalog="barriga">
+        <id name="idHistoriaCartera" type="java.lang.Integer">
+            <column name="IdHistoriaCartera" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="empleado" class="model.pojos.Empleado" fetch="select">
+            <column name="IdEmpleado" />
+        </many-to-one>
+        <many-to-one name="estatusCartera" class="model.pojos.EstatusCartera" fetch="select">
+            <column name="IdEstatusCartera" />
+        </many-to-one>
+        <many-to-one name="cliente" class="model.pojos.Cliente" fetch="select">
+            <column name="IdCliente" not-null="true" />
+        </many-to-one>
+        <property name="ordenHistorico" type="int">
+            <column name="OrdenHistorico" not-null="true" />
+        </property>
+        <property name="fechaEntrada" type="timestamp">
+            <column name="FechaEntrada" length="19" />
+        </property>
+        <property name="fechaSalida" type="timestamp">
+            <column name="FechaSalida" length="19" />
+        </property>
+        <set name="historiaConvenios" inverse="true">
+            <key>
+                <column name="IdCartera" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.HistoriaConvenio" />
+        </set>
+        <set name="historiaPagoses" inverse="true">
+            <key>
+                <column name="IdCartera" />
+            </key>
+            <one-to-many class="model.pojos.HistoriaPagos" />
+        </set>
+    </class>
+</hibernate-mapping>

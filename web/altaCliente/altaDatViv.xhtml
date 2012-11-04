@@ -1,0 +1,70 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        encoding="utf-8"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="Alta Individual" swatch="b">
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <p:commandButton action="menuPrincipal" ajax="false" value="Cancelar"/>
+                        <p:commandButton action="altaDatosPersonales" ajax="false" value="Datos Personales"/>
+                    </h:panelGrid>
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="login"> 
+                    <center>
+                        <h:panelGrid width="90%" columns="3">
+                            <h:outputText value="Calle"/>
+                            <p:inputText id="calle" label="Calle" required="true" value="${altaCliente.vivienda.direccionCalle}">
+                            <p:ajax event="change"/>
+                            </p:inputText>
+                            <p:message for="calle" display="icon"/>
+                            
+                            <h:outputText value="Numero"/>
+                            <p:inputText id="numero" label="Numero" required="true" value="${altaCliente.vivienda.direccionNumero}">
+                            <p:ajax event="change"/>
+                            </p:inputText>
+                            <p:message for="numero" display="icon"/>
+                            
+                            <h:outputText value="Colonia"/>
+                            <p:inputText id="colonia" label="Colonia" required="true" value="${altaCliente.vivienda.direccionColonia}">
+                            <p:ajax event="change"/>
+                            </p:inputText>
+                            <p:message for="colonia" display="icon"/>
+                         
+                            <h:outputText value="Ciudad"/>
+                            <p:inputText  id="ciudad" label="Ciudad" required="true" value="${altaCliente.vivienda.direccionDelegacionMunicipio}">
+                            <p:ajax event="change"/>
+                            </p:inputText>
+                            <p:message for="ciudad" display="icon"/>
+                            
+                            
+                            <h:outputText value="Codigo Postal"/>
+                            <p:inputMask id="codigo" label="Codigo Postal" required="true" mask="99999" value="${altaCliente.vivienda.direccionCodigoPostal}">
+                            <p:ajax event="change"/>
+                            </p:inputMask>
+                            <p:message for="codigo" display="icon"/>
+                            
+                         <h:commandButton  value="Guardar" action="${altaCliente.guardarCliente}"/>
+                        </h:panelGrid>
+
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

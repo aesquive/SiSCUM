@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.Vivienda" table="Vivienda" catalog="barriga">
+        <id name="idVivienda" type="java.lang.Integer">
+            <column name="IdVivienda" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="estatusVivienda" class="model.pojos.EstatusVivienda" fetch="select">
+            <column name="IdEstatusVivienda" />
+        </many-to-one>
+        <many-to-one name="cliente" class="model.pojos.Cliente" fetch="select">
+            <column name="IdCliente" not-null="true" />
+        </many-to-one>
+        <property name="posicionLatitud" type="java.lang.Integer">
+            <column name="PosicionLatitud" />
+        </property>
+        <property name="posicionLongitud" type="java.lang.Integer">
+            <column name="PosicionLongitud" />
+        </property>
+        <property name="direccionCalle" type="string">
+            <column name="DireccionCalle" length="100" />
+        </property>
+        <property name="direccionNumero" type="string">
+            <column name="DireccionNumero" length="100" />
+        </property>
+        <property name="direccionColonia" type="string">
+            <column name="DireccionColonia" length="100" />
+        </property>
+        <property name="direccionDelegacionMunicipio" type="string">
+            <column name="DireccionDelegacionMunicipio" length="45" />
+        </property>
+        <property name="direccionCodigoPostal" type="java.lang.Integer">
+            <column name="DireccionCodigoPostal" />
+        </property>
+    </class>
+</hibernate-mapping>

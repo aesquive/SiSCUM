@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2012 12:23:06 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.EstatusCliente" table="EstatusCliente" catalog="barriga">
+        <id name="idEstatusCliente" type="int">
+            <column name="IdEstatusCliente" />
+            <generator class="assigned" />
+        </id>
+        <property name="desEstatusCliente" type="string">
+            <column name="DesEstatusCliente" length="45" />
+        </property>
+        <set name="clientes" inverse="true">
+            <key>
+                <column name="IdEstatusCliente" />
+            </key>
+            <one-to-many class="model.pojos.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

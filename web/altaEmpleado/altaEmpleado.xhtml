@@ -1,0 +1,63 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        encoding="utf-8"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="Alta Empleado" swatch="b">
+                <h:form>
+                    <p:commandButton action="menuPrincipal" ajax="false" value="Menu Principal"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="login"> 
+                    <center>
+                        <h:panelGrid width="90%" columns="3">
+                            <a>Apellido Paterno</a>
+                            <p:inputText id="apePat" label="Apellido Paterno" required="true" value="${altaEmpleado.empleado.apellidoPaterno}"/>
+                            <p:message for="apePat" display="icon"/>
+
+                            <a>Apellido Materno</a>
+                            <p:inputText id="apeMat" label="Apellido Materno" required="true" value="${altaEmpleado.empleado.apellidoMaterno}"/>
+                            <p:message for="apeMat" display="icon"/>
+
+                            <a>Primer Nombre</a>
+                            <p:inputText id="primNom" label="Primer Nombre" required="true" value="${altaEmpleado.empleado.primerNombre}"/>
+                            <p:message for="primNom" display="icon"/>
+
+                            <a>Segundo Nombre</a>
+                            <p:inputText id="segNom" label="Segundo Nombre" value="${altaEmpleado.empleado.segundoNombre}"/>
+                            <p:message for="segNom" display="icon"/>
+
+                            <a>Usuario</a>
+                            <p:inputText id="usuario" label="Usuario" required="true" value="${altaEmpleado.empleado.usuario}"/>
+                            <p:message for="usuario" display="icon"/>
+
+                            <a>Contraseña</a>
+                            <p:password id="password" label="Contraseña" required="true" value="${altaEmpleado.empleado.password}"/>
+                            <p:message for="password" display="icon"/>
+
+                            <h:commandButton id="boton" value="Guardar Empleado" action="${altaEmpleado.submitGuardarEmpleado}"/>
+
+                        </h:panelGrid>
+
+
+
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

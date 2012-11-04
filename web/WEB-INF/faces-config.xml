@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+  
+  
+    <managed-bean>
+        <description>Bean que mantiene todas las variables generales del programa
+        </description>
+        <managed-bean-name>sessionVarsBean</managed-bean-name>
+        <managed-bean-class>control.bean.session.SessionVarsBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>loginBean</managed-bean-name>
+        <managed-bean-class>control.bean.request.LoginBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    
+    <managed-bean>
+        <description>Bean para el alta de Usuarios
+        </description>
+        <managed-bean-name>altaEmpleado</managed-bean-name>
+        <managed-bean-class>control.bean.request.AltaEmpleado</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>altaCliente</managed-bean-name>
+        <managed-bean-class>control.bean.session.AltaCliente</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/menuPrincipal.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>altaEmpleado</from-outcome>
+            <to-view-id>/altaEmpleado/altaEmpleado.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>altaCliente</from-outcome>
+            <to-view-id>/altaCliente/altaCliente.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altaEmpleado/altaEmpleado.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altaCliente/altaCliente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>altaRafaga</from-outcome>
+            <to-view-id>/altaCliente/altaRafaga.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>altaDatosPersonales</from-outcome>
+            <to-view-id>/altaCliente/altaDatosPersonales.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altaCliente/altaDatosPersonales.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>altaDataViv</from-outcome>
+            <to-view-id>/altaCliente/altaDatViv.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altaCliente/altaRafaga.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/altaCliente/altaDatViv.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>altaDatosPersonales</from-outcome>
+            <to-view-id>/altaCliente/altaDatosPersonales.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

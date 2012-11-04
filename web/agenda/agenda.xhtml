@@ -1,0 +1,63 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        encoding="utf-8"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="Menu Principal" swatch="b">
+                <h:form>
+                    <p:commandButton action="index" ajax="false" value="Salir"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <center>
+                    <h3>Datos Cliente</h3> 
+                    <p:scrollPanel mode="native">
+                        <h:panelGrid columns="2">
+                            <h:outputText  value="Nombre"/>
+                            <h:outputText value="Lalo Esquivel"/>
+                            <h:outputText value="Direccion"/>
+                            <h:outputText value="adjaksdjaksdjajaksdjaskdajskdasdkdasd"/>
+                            <h:outputText value=""/>
+                            <h:outputText  value="asdasdasdasdasdasdas"/>
+                            <h:outputText value="Monto a Pagar"/>
+                            <h:outputText value="asdhaskdjaksdjaskdjaskdjaskd"/>
+                            <h:outputText value="Modo de Cobranza"/>
+                            <h:outputText value="askdjaskdajsdkasjdkasjdaksdjaksd"/>
+                        </h:panelGrid>
+                    </p:scrollPanel>
+                    <br/>
+                    <h3>Ubicación</h3>
+                    Va un mapa
+                    <h:form>
+                        <h:panelGrid columns="3" width="90%" >
+                            <h:outputText value="Acción"/>
+                            <h:selectOneMenu>
+                                <f:selectItem itemLabel="Pago" itemValue="1"/>
+                                <f:selectItem itemLabel="Convenio" itemValue="2"/>
+                                <f:selectItem itemLabel="No se encuentra" itemValue="3"/>
+                                <p:ajax update="ajaxUpdater" event="change"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        
+                        <div id="ajaxUpdater">
+                            
+                        </div>
+                        
+                    </h:form>
+                </center>
+            </pm:content>
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

@@ -1,0 +1,48 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+encoding="utf-8"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="Menu Principal" swatch="b">
+                <h:form>
+                <p:commandButton action="index" ajax="false" value="Salir"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="login"> 
+                    <center>
+                        <h:panelGrid columns="2">
+
+
+                            <c:if test="${sessionVarsBean.empleado.rol.idRol==1}">
+                                <h:commandButton value="Agenda"/>
+                            </c:if>
+                            <c:if test="${sessionVarsBean.empleado.rol.idRol>1}">
+                                <h:commandButton value="Panel de Control"/>
+                                <h:commandButton value="Reporte de Personal"/>
+                                <h:commandButton value="Reporte de Viviendas"/>
+                                <h:commandButton action="altaCliente" value="Alta de Cliente"/>
+                                <h:commandButton action="altaEmpleado" value="Alta de Empleados"/>
+                            </c:if>
+                            
+                        </h:panelGrid>
+
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
