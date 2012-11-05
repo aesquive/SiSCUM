@@ -1,0 +1,59 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        encoding="utf-8"
+        contentType="text/html"
+        >
+
+    <pm:page title="SiSCUM">
+
+        <pm:view id="SiSCUM">
+
+            <pm:header title="SiSCUM" swatch="b">
+                <h:form>
+                    <p:commandButton action="menuPrincipal" ajax="false" value="Salir"/>
+                </h:form>
+
+            </pm:header>
+
+            <pm:content>
+
+                <h:panelGrid width="60%" columns="2">
+
+                    <h:form>
+                        <h:outputText value="Clientes Pendientes"/>
+                        <h:selectOneMenu id="clientes"  value="${asignacionCartera.idClienteSeleccionado}">
+
+                            <f:selectItem itemValue="-1" itemLabel="--Seleccione--"/>
+                            <f:selectItems value="${asignacionCartera.clientes}" var="cliente"
+                                           itemLabel="${cliente.primerNombre} ${cliente.apellidoPaterno}"
+                                           itemValue="${cliente.idCliente}"/>
+                            <p:ajax event="change"/>
+                        </h:selectOneMenu>
+
+                        <h:outputText value="Cobradores"/>
+                        <h:selectOneMenu value="${asignacionCartera.idEmpleadoSeleccionado}">
+                            <f:selectItem itemValue="-1" itemLabel="--Seleccione--"/>
+                            <f:selectItems value="${asignacionCartera.cobradores}" var="cobrador"
+                                           itemLabel="${cobrador.primerNombre} ${cobrador.apellidoPaterno}"
+                                           itemValue="${cobrador.idEmpleado}"/>
+                            <p:ajax event="change"/>
+                        </h:selectOneMenu>
+
+
+                        <p:commandButton action="${asignacionCartera.asignarCartera}" ajax="false" value="Asignar"/>
+                    </h:form>
+
+                </h:panelGrid>
+
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

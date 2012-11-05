@@ -3,7 +3,9 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="altaCliente/altaCliente.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="asignarCartera/asignacionCartera.xhtml" x="-703" y="396" zoom="true"/>
         <Node id="index.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="agenda/agenda.xhtml" x="-272" y="405" zoom="true"/>
         <Node id="menuPrincipal.xhtml" x="150" y="300" zoom="true"/>
         <Node id="altaEmpleado/altaEmpleado.xhtml" x="144" y="138" zoom="true"/>
         <Node id="altaCliente/altaDatosPersonales.xhtml" x="243" y="547" zoom="true"/>

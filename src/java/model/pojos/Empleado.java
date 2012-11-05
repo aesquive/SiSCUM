@@ -135,6 +135,28 @@ public class Empleado  implements java.io.Serializable {
         this.jefes = jefes;
     }
 
+    /**
+     * metodo que nos sirve para obtener todos los empleados en cualquier jerarquia
+     * @return 
+     */
+    public Set getAllEmpleados(){
+        Set<Empleado> conjunto=new HashSet<Empleado>();
+        buscarEmpleados(conjunto,this);
+        return conjunto;
+    }
+
+    /**
+     * metodo que busca recursivamente a todos los empleados 
+     * @param conjunto
+     * @param empleado 
+     */
+    private void buscarEmpleados(Set<Empleado> conjunto, Empleado empleado) {
+        Set<JerarquiaEmpleado> directos  = empleado.getEmpleados();
+        for(JerarquiaEmpleado jer:directos){
+            conjunto.add(jer.getEmpleadoByIdEmpleado());
+            buscarEmpleados(conjunto, jer.getEmpleadoByIdEmpleado());
+        }
+    }
 
 
 

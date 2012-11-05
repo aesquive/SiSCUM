@@ -25,7 +25,7 @@ encoding="utf-8"
 
 
                             <c:if test="${sessionVarsBean.empleado.rol.idRol==1}">
-                                <h:commandButton value="Agenda"/>
+                                <h:commandButton action="agenda" value="Agenda"/>
                             </c:if>
                             <c:if test="${sessionVarsBean.empleado.rol.idRol>1}">
                                 <h:commandButton value="Panel de Control"/>
@@ -33,6 +33,7 @@ encoding="utf-8"
                                 <h:commandButton value="Reporte de Viviendas"/>
                                 <h:commandButton action="altaCliente" value="Alta de Cliente"/>
                                 <h:commandButton action="altaEmpleado" value="Alta de Empleados"/>
+                                <h:commandButton value="Asignar Cartera" action="asignarCartera"/>
                             </c:if>
                             
                         </h:panelGrid>

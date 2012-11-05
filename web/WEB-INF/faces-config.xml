@@ -15,7 +15,14 @@
         <managed-bean-class>control.bean.session.SessionVarsBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+
     
+    <managed-bean>
+        <managed-bean-name>asignacionCartera</managed-bean-name>
+        <managed-bean-class>control.bean.view.AsignacionCartera</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+            
     <managed-bean>
         <managed-bean-name>loginBean</managed-bean-name>
         <managed-bean-class>control.bean.request.LoginBean</managed-bean-class>
@@ -56,6 +63,14 @@
         <navigation-case>
             <from-outcome>altaCliente</from-outcome>
             <to-view-id>/altaCliente/altaCliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>agenda</from-outcome>
+            <to-view-id>/agenda/agenda.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>asignarCartera</from-outcome>
+            <to-view-id>/asignarCartera/asignacionCartera.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -104,6 +119,20 @@
             <from-outcome>altaDatosPersonales</from-outcome>
             <to-view-id>/altaCliente/altaDatosPersonales.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/agenda/agenda.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/asignarCartera/asignacionCartera.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>menuPrincipal</from-outcome>
             <to-view-id>/menuPrincipal.xhtml</to-view-id>
