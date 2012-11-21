@@ -7,8 +7,8 @@
         <Node id="index.xhtml" x="900" y="150" zoom="true"/>
         <Node id="agenda/agenda.xhtml" x="-272" y="405" zoom="true"/>
         <Node id="menuPrincipal.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="altaEmpleado/altaEmpleado.xhtml" x="144" y="138" zoom="true"/>
         <Node id="altaCliente/altaDatosPersonales.xhtml" x="243" y="547" zoom="true"/>
+        <Node id="altaEmpleado/altaEmpleado.xhtml" x="144" y="138" zoom="true"/>
         <Node id="altaCliente/altaDatViv.xhtml" x="336" y="644" zoom="true"/>
         <Node id="altaCliente/altaRafaga.xhtml" x="560" y="150" zoom="true"/>
     </Scope>

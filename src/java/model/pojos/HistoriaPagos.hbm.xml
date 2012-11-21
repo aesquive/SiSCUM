@@ -14,8 +14,8 @@
         <property name="fechaPago" type="timestamp">
             <column name="FechaPago" length="19" />
         </property>
-        <property name="monto" type="string">
-            <column name="Monto" length="45" />
+        <property name="monto" type="double">
+            <column name="Monto" precision="22" scale="0" />
         </property>
     </class>
 </hibernate-mapping>

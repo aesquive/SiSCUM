@@ -13,12 +13,12 @@ public class HistoriaPagos  implements java.io.Serializable {
      private Integer idHistoriaPagos;
      private HistoriaCartera historiaCartera;
      private Date fechaPago;
-     private String monto;
+     private double monto;
 
     public HistoriaPagos() {
     }
 
-    public HistoriaPagos(HistoriaCartera historiaCartera, Date fechaPago, String monto) {
+    public HistoriaPagos(HistoriaCartera historiaCartera, Date fechaPago, double monto) {
        this.historiaCartera = historiaCartera;
        this.fechaPago = fechaPago;
        this.monto = monto;
@@ -45,11 +45,11 @@ public class HistoriaPagos  implements java.io.Serializable {
     public void setFechaPago(Date fechaPago) {
         this.fechaPago = fechaPago;
     }
-    public String getMonto() {
+    public double getMonto() {
         return this.monto;
     }
     
-    public void setMonto(String monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 

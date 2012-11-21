@@ -25,9 +25,9 @@
             
     <managed-bean>
         <managed-bean-name>loginBean</managed-bean-name>
-        <managed-bean-class>control.bean.request.LoginBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+        <managed-bean-class>control.bean.view.LoginBean</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
     
     
     <managed-bean>
@@ -130,6 +130,10 @@
             <from-outcome>menuPrincipal</from-outcome>
             <to-view-id>/menuPrincipal.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>agenda</from-outcome>
+            <to-view-id>/agenda/agenda.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/asignarCartera/asignacionCartera.xhtml</from-view-id>
@@ -138,4 +142,9 @@
             <to-view-id>/menuPrincipal.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>manejadorAgenda</managed-bean-name>
+        <managed-bean-class>control.bean.session.ManejadorAgenda</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

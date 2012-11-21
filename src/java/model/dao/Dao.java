@@ -91,6 +91,21 @@ public class Dao {
     }
     
     /**
+     * Nos da las tuplas de la base de datos de acuerdo a la tabla pedida y los criterios de busqueda
+     * @param table tabla que se desea seleccionar
+     * @param criterion criterio para la busqueda
+     * @return lista de las tuplas en base de datos
+     */
+    public List executeSelectOneCriterion(Class table ,Criterion criterion){
+        if(criterion==null){
+            return session.createCriteria(table).list();
+        }
+        Criteria createCriteria = session.createCriteria(table);
+            createCriteria.add(criterion);
+        return createCriteria.list();
+    }
+    
+    /**
      * Refresca el valor del objeto , ya que Hibernate mantiene un valor viejo de la tupla hasta que se utiliza este metodo
      * @param objeto objeto a refrescar
      */
