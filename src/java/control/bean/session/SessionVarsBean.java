@@ -61,4 +61,12 @@ public class SessionVarsBean extends Bean{
     }
 
 
+    /**
+     * metodo que limpia los beans y redirige a index
+     * @return 
+     */
+    public String limpiarBeans(){
+        Bean.cleanBean("manejadorAgenda");
+        return "index";
+    }
 }

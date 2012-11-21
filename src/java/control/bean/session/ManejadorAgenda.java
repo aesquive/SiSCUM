@@ -32,17 +32,25 @@ public class ManejadorAgenda {
     private Dao dao;
     private int indiceCliente;
     private String mensaje;
+    private boolean finalizado;
     
     /**
      * Creates a new instance of ManejadorAgenda
      */
     public ManejadorAgenda() {
         indiceCliente = 0;
+        finalizado=false;
         tipoAccion = -1;
         sessionVarsBean = (SessionVarsBean) Bean.getSessionBean("sessionVarsBean");
         dao = sessionVarsBean.getDao();
+        dao.refreshObject(sessionVarsBean.getEmpleado());
         generarClientes();
         clienteActual = clientes.get(indiceCliente);
+        if(clientes.isEmpty()){
+            clienteActual=new Cliente();
+            setMensaje("No hay registro de clientes");
+            finalizado=true;
+        }
         viviendaActual = (Vivienda) clienteActual.getViviendas().iterator().next();
         convenio = new HistoriaConvenio();
         pago = new HistoriaPagos();
@@ -155,7 +163,6 @@ public class ManejadorAgenda {
     public String submitConvenio() {
         HistoriaCartera cartera = obtenerHistoriaCartera();
         if (cartera == null) {
-
             setMensaje("Error al buscar la cartera");
             return "agenda";
         }
@@ -213,6 +220,8 @@ public class ManejadorAgenda {
             limpiarVariables();
             return "agenda";
         }
+        finalizado=true;
+        setMensaje("No hay mas clientes disponibles");
         return "menuPrincipal";
     }
 
@@ -247,5 +256,19 @@ public class ManejadorAgenda {
      */
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    /**
+     * @return the finalizado
+     */
+    public boolean isFinalizado() {
+        return finalizado;
+    }
+
+    /**
+     * @param finalizado the finalizado to set
+     */
+    public void setFinalizado(boolean finalizado) {
+        this.finalizado = finalizado;
     }
 }

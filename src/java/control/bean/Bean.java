@@ -19,4 +19,8 @@ public class Bean {
     public static void setSessionBean(String name , Bean bean){
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(name, bean);
     }
+
+    public static void cleanBean(String manejadorAgenda) {
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(manejadorAgenda);
+    }
 }

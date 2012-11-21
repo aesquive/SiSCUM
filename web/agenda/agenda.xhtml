@@ -19,77 +19,83 @@
             </pm:header>
 
             <pm:content id="contenido">
-                
                 <center>
                     <h:outputText value="${manejadorAgenda.mensaje}" style="color: red ; font-size: large"/>
-                    <h3>Datos Cliente</h3> 
-                    <p:scrollPanel mode="native">
-                        <h:panelGrid columns="2">
-                            <h:outputText  value="Nombre"/>
-                            <h:outputText value="${manejadorAgenda.clienteActual.primerNombre} ${manejadorAgenda.clienteActual.apellidoPaterno}"/>
-                            <h:outputText value="Direccion"/>
-                            <h:outputText value="Calle ${manejadorAgenda.viviendaActual.direccionCalle} Num ${manejadorAgenda.viviendaActual.direccionNumero}"/>
-                            <h:outputText value=""/>
-                            <h:outputText value="Col. ${manejadorAgenda.viviendaActual.direccionColonia} CP ${manejadorAgenda.viviendaActual.direccionCodigoPostal}"/>
-                            <h:outputText value="Monto a Pagar"/>
-                            <h:outputText value="500"/>
-                            <h:outputText value="Modo de Cobranza"/>
-                            <h:outputText value="Agresiva"/>
-                        </h:panelGrid>
-                    </p:scrollPanel>
-                    <br/>
-                    <h3>Ubicación</h3>
-                    Mapa pendiente
-                    <br/>
-                    <h:form>
-                        <h:panelGrid columns="3" width="90%" >
-                            <h:outputText value="Acción"/>
-                            <h:selectOneMenu value="${manejadorAgenda.tipoAccion}">
-                                <f:selectItem itemLabel="--Seleccione--" itemValue="-1"/>
-                                <f:selectItem itemLabel="Pago" itemValue="1"/>
-                                <f:selectItem itemLabel="Convenio" itemValue="2"/>
-                                <f:selectItem itemLabel="No se encuentra" itemValue="3"/>
-                                <p:ajax update="ajaxUpdater" event="change"/>
-                            </h:selectOneMenu>
-                        </h:panelGrid>
-                    </h:form>
-                    <h:panelGrid width="50%" id="ajaxUpdater">
-                        <c:if test="${manejadorAgenda.tipoAccion==1}">
-                            <h:form>
-                                <h:panelGrid columns="3">
-                                    <h:outputText value="Monto de Pago"/>
-                                    <p:inputText id="mtoPago" label="Monto"  required="true" value="${manejadorAgenda.pago.monto}">
-                                        <f:convertNumber type="number"/>
-                                    </p:inputText>
-                                    <p:message for="mtoPago"  display="icon"/>
-                                    <p:commandButton ajax="false" action="${manejadorAgenda.submitPago}" value="Siguiente"/>
-                                </h:panelGrid>
-                            </h:form>
-                        </c:if>
-                        <c:if test="${manejadorAgenda.tipoAccion==2}">
-                            <h:form>
-                                <h:panelGrid columns="3">
-                                    <h:outputText value="Fecha compromiso"/>
-                                    <p:inputMask mask="99/99/9999" id="fecCom"  required="true" value="${manejadorAgenda.convenio.fechaCompromiso}"/>
-                                    <p:message for="fecCom" display="icon"/>
-                                    <h:outputText value="Monto compromiso"/>
-                                    <p:inputText id="mtoCom" label="Monto"  required="true" value="${manejadorAgenda.convenio.monto}">
-                                    <f:convertNumber type="number"/>
-                                    </p:inputText>
-                                    <p:message for="mtoCom" display="icon"/>
-                                    <p:commandButton ajax="false" action="${manejadorAgenda.submitConvenio}" value="Siguiente"/>
-                                </h:panelGrid>
-
-                            </h:form>
-                        </c:if> 
-                        <c:if test="${manejadorAgenda.tipoAccion==3}">
-                            <h:form>
-                                <p:commandButton ajax="false" action="${manejadorAgenda.submitNoEsta}" value="Siguiente"/>
-                            </h:form>
-                        </c:if>
-                    </h:panelGrid>
 
                 </center>
+                <c:if test="${!manejadorAgenda.finalizado}">
+                    <center>
+                        <h3>Datos Cliente</h3> 
+                        <p:scrollPanel mode="native">
+                            <h:panelGrid columns="2">
+                                <h:outputText  value="Nombre"/>
+                                <h:outputText value="${manejadorAgenda.clienteActual.primerNombre} ${manejadorAgenda.clienteActual.apellidoPaterno}"/>
+                                <h:outputText value="Direccion"/>
+                                <h:outputText value="Calle ${manejadorAgenda.viviendaActual.direccionCalle} Num ${manejadorAgenda.viviendaActual.direccionNumero}"/>
+                                <h:outputText value=""/>
+                                <h:outputText value="Col. ${manejadorAgenda.viviendaActual.direccionColonia} CP ${manejadorAgenda.viviendaActual.direccionCodigoPostal}"/>
+                                <h:outputText value="Monto a Pagar"/>
+                                <h:outputText value="500"/>
+                                <h:outputText value="Modo de Cobranza"/>
+                                <h:outputText value="Agresiva"/>
+                            </h:panelGrid>
+                        </p:scrollPanel>
+                        <br/>
+                        <!--
+                        <h3>Ubicación</h3>
+                        Mapa pendiente
+                        -->
+                        <br/>
+                        <h:form>
+                            <h:panelGrid columns="3" width="90%" >
+                                <h:outputText value="Acción"/>
+                                <h:selectOneMenu value="${manejadorAgenda.tipoAccion}">
+                                    <f:selectItem itemLabel="--Seleccione--" itemValue="-1"/>
+                                    <f:selectItem itemLabel="Pago" itemValue="1"/>
+                                    <f:selectItem itemLabel="Convenio" itemValue="2"/>
+                                    <f:selectItem itemLabel="No se encuentra" itemValue="3"/>
+                                    <p:ajax update="ajaxUpdater" event="change"/>
+                                </h:selectOneMenu>
+                            </h:panelGrid>
+                        </h:form>
+                        <h:panelGrid width="50%" id="ajaxUpdater">
+                            <c:if test="${manejadorAgenda.tipoAccion==1}">
+                                <h:form>
+                                    <h:panelGrid columns="3">
+                                        <h:outputText value="Monto de Pago"/>
+                                        <p:inputText id="mtoPago" label="Monto"  required="true" value="${manejadorAgenda.pago.monto}">
+                                            <f:convertNumber type="number"/>
+                                        </p:inputText>
+                                        <p:message for="mtoPago"  display="icon"/>
+                                        <p:commandButton ajax="false" action="${manejadorAgenda.submitPago}" value="Siguiente"/>
+                                    </h:panelGrid>
+                                </h:form>
+                            </c:if>
+                            <c:if test="${manejadorAgenda.tipoAccion==2}">
+                                <h:form>
+                                    <h:panelGrid columns="3">
+                                        <h:outputText value="Fecha compromiso"/>
+                                        <p:inputMask mask="99/99/9999" id="fecCom"  required="true" value="${manejadorAgenda.convenio.fechaCompromiso}"/>
+                                        <p:message for="fecCom" display="icon"/>
+                                        <h:outputText value="Monto compromiso"/>
+                                        <p:inputText id="mtoCom" label="Monto"  required="true" value="${manejadorAgenda.convenio.monto}">
+                                            <f:convertNumber type="number"/>
+                                        </p:inputText>
+                                        <p:message for="mtoCom" display="icon"/>
+                                        <p:commandButton ajax="false" action="${manejadorAgenda.submitConvenio}" value="Siguiente"/>
+                                    </h:panelGrid>
+
+                                </h:form>
+                            </c:if> 
+                            <c:if test="${manejadorAgenda.tipoAccion==3}">
+                                <h:form>
+                                    <p:commandButton ajax="false" action="${manejadorAgenda.submitNoEsta}" value="Siguiente"/>
+                                </h:form>
+                            </c:if>
+                        </h:panelGrid>
+
+                    </center>
+                </c:if>
             </pm:content>
         </pm:view>
 
